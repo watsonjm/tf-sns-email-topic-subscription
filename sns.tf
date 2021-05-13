@@ -1,5 +1,4 @@
 data "template_file" "aws_cf_sns_stack" {
-  for_each = local.sns_sub_list
   template = file("${path.module}/templates/cf_aws_sns_email_stack.json.tpl")
   vars = {
     sns_topic_name   = title(var.email_list_name)
