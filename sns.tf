@@ -12,7 +12,7 @@ resource "aws_cloudformation_stack" "tf_sns_topic" {
   name          = var.email_list_name
   template_body = data.template_file.aws_cf_sns_stack.rendered
 
-  tags = merge(local.common_tags, { Name = "${local.name_tag}-snsStack-${lower(var.email_list_name)}" })
+  tags = merge(var.common_tags, { Name = "${var.name_tag}-snsStack-${lower(var.email_list_name)}" })
 }
 
 data "aws_sns_topic" "email_notifications" {
