@@ -16,5 +16,5 @@ resource "aws_cloudformation_stack" "tf_sns_topic" {
 }
 
 data "aws_sns_topic" "email_notifications" {
-  name = title(var.email_list_name)
+  name = title(aws_cloudformation_stack.tf_sns_topic.name)
 }
