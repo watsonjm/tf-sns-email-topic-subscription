@@ -16,3 +16,13 @@ variable "name_tag" {
   default     = null
   description = "Name tag prefix used in other resources for consistency"
 }
+variable "email_display_name" {
+  type        = string
+  default     = null
+  description = "Display name used for email notifications."
+}
+variable "kms_key_id" {
+  type        = string
+  default     = "alias/aws/sns"
+  description = "KMS key ID for encrypting SNS topics. Will use default key if no custom key is present."
+}
